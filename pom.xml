@@ -134,7 +134,7 @@
                         </argLine>
 			     <suiteXmlFiles>
                             <suiteXmlFile>
-                                /testng.xml
+                                /Jenkins/workspace/DevOps-Pipeline-Selenium-SNOW/testng.xml
                             </suiteXmlFile>
                         </suiteXmlFiles>
                  </configuration>
