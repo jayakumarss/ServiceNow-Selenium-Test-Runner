@@ -7,6 +7,7 @@ package com.company.servicenowtests;
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,7 +34,7 @@ public class ListView extends BaseTest {
     
     /**
      * Gets all displayed header cells
-     * @return A collection of all displayed header cell elemenets
+     * @return A collection of all displayed header cell elements
      */
     private List<WebElement> getDisplayedHeaderCells() {
         List<WebElement> cells = getHeaderCells(),
@@ -82,7 +83,7 @@ public class ListView extends BaseTest {
      */
     public void compareHeadingsToExpectedValues(List<String> values) {
         List<String> columns = getColumnHeadingList();
-        assertTrue("The expected values " + values.toString() + " match the actual values " + columns.toString(), columns.equals(values));
+        assertFalse("The expected values " + values.toString() + " match the actual values " + columns.toString(), columns.equals(values));
     }
     
     /**

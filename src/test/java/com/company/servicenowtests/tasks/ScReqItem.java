@@ -18,66 +18,79 @@ public class ScReqItem extends BaseTest {
 
     @FindBy(id = "ni.sc_req_item.backordered")
     public WebElement backordered;
+    
     @FindBy(id = "status.sc_req_item.backordered")
     public WebElement backorderedSpan;
 
     @FindBy(id = "ni.sc_req_item.billable")
     public WebElement billable;
+    
     @FindBy(id = "status.sc_req_item.billable")
     public WebElement billableSpan;
 
     @FindBy(id = "sys_display.sc_req_item.cat_item")
     public WebElement catItem;
+    
     @FindBy(id = "status.sc_req_item.cat_item")
     public WebElement catItemSpan;
 
     @FindBy(id = "sys_display.sc_req_item.configuration_item")
     public WebElement configurationItem;
+    
     @FindBy(id = "status.sc_req_item.configuration_item")
     public WebElement configurationItemSpan;
 
     @FindBy(id = "sys_display.sc_req_item.context")
     public WebElement context;
+    
     @FindBy(id = "status.sc_req_item.context")
     public WebElement contextSpan;
 
     @FindBy(id = "sc_req_item.estimated_delivery")
     public WebElement estimatedDelivery;
+    
     @FindBy(id = "status.sc_req_item.estimated_delivery")
     public WebElement estimatedDeliverySpan;
 
     @FindBy(id = "sc_req_item.price")
     public WebElement price;
+    
     @FindBy(id = "status.sc_req_item.price")
     public WebElement priceSpan;
 
     @FindBy(id = "sc_req_item.quantity")
     public WebElement quantity;
+    
     @FindBy(id = "status.sc_req_item.quantity")
     public WebElement quantitySpan;
 
     @FindBy(id = "sc_req_item.recurring_frequency")
     public WebElement recurringFrequency;
+    
     @FindBy(id = "status.sc_req_item.recurring_frequency")
     public WebElement recurringFrequencySpan;
 
     @FindBy(id = "sc_req_item.recurring_price")
     public WebElement recurringPrice;
+    
     @FindBy(id = "status.sc_req_item.recurring_price")
     public WebElement recurringPriceSpan;
 
     @FindBy(id = "sys_display.sc_req_item.request")
     public WebElement request;
+    
     @FindBy(id = "status.sc_req_item.request")
     public WebElement requestSpan;
 
     @FindBy(id = "sys_display.sc_req_item.sc_catalog")
     public WebElement scCatalog;
+    
     @FindBy(id = "status.sc_req_item.sc_catalog")
     public WebElement scCatalogSpan;
 
     @FindBy(id = "sc_req_item.stage")
     public WebElement stage;
+    
     @FindBy(id = "status.sc_req_item.stage")
     public WebElement stageSpan;
 
@@ -86,141 +99,169 @@ public class ScReqItem extends BaseTest {
 
     @FindBy(id = "ni.sc_req_item.active")
     public WebElement active;
+    
     @FindBy(id = "status.sc_req_item.active")
     public WebElement activeSpan;
 
     @FindBy(id = "sc_req_item.activity_due")
     public WebElement activityDue;
+    
     @FindBy(id = "status.sc_req_item.activity_due")
     public WebElement activityDueSpan;
 
     @FindBy(id = "sc_req_item.approval")
     public WebElement approval;
+    
     @FindBy(id = "status.sc_req_item.approval")
     public WebElement approvalSpan;
 
     @FindBy(id = "sc_req_item.approval_history")
     public WebElement approvalHistory;
+    
     @FindBy(id = "status.sc_req_item.approval_history")
     public WebElement approvalHistorySpan;
 
     @FindBy(id = "sc_req_item.approval_set")
     public WebElement approvalSet;
+    
     @FindBy(id = "status.sc_req_item.approval_set")
     public WebElement approvalSetSpan;
 
     @FindBy(id = "sys_display.sc_req_item.assigned_to")
     public WebElement assignedTo;
+    
     @FindBy(id = "status.sc_req_item.assigned_to")
     public WebElement assignedToSpan;
 
     @FindBy(id = "sys_display.sc_req_item.assignment_group")
     public WebElement assignmentGroup;
+    
     @FindBy(id = "status.sc_req_item.assignment_group")
     public WebElement assignmentGroupSpan;
 
     @FindBy(id = "sc_req_item.business_duration")
     public WebElement businessDuration;
+    
     @FindBy(id = "status.sc_req_item.business_duration")
     public WebElement businessDurationSpan;
 
     @FindBy(id = "sc_req_item.calendar_duration")
     public WebElement calendarDuration;
+    
     @FindBy(id = "status.sc_req_item.calendar_duration")
     public WebElement calendarDurationSpan;
 
     @FindBy(id = "sc_req_item.closed_at")
     public WebElement closedAt;
+    
     @FindBy(id = "status.sc_req_item.closed_at")
     public WebElement closedAtSpan;
 
     @FindBy(id = "sys_display.sc_req_item.closed_by")
     public WebElement closedBy;
+    
     @FindBy(id = "status.sc_req_item.closed_by")
     public WebElement closedBySpan;
 
     @FindBy(id = "sc_req_item.close_notes")
     public WebElement closeNotes;
+    
     @FindBy(id = "status.sc_req_item.close_notes")
     public WebElement closeNotesSpan;
 
     @FindBy(id = "sys_display.sc_req_item.cmdb_ci")
     public WebElement cmdbCi;
+    
     @FindBy(id = "status.sc_req_item.cmdb_ci")
     public WebElement cmdbCiSpan;
 
     @FindBy(id = "sc_req_item.comments")
     public WebElement comments;
+    
     @FindBy(id = "status.sc_req_item.comments")
     public WebElement commentsSpan;
 
     @FindBy(id = "sc_req_item.comments_and_work_notes")
     public WebElement commentsAndWorkNotes;
+    
     @FindBy(id = "status.sc_req_item.comments_and_work_notes")
     public WebElement commentsAndWorkNotesSpan;
 
     @FindBy(id = "sys_display.sc_req_item.company")
     public WebElement company;
+    
     @FindBy(id = "status.sc_req_item.company")
     public WebElement companySpan;
 
     @FindBy(id = "sc_req_item.contact_type")
     public WebElement contactType;
+    
     @FindBy(id = "status.sc_req_item.contact_type")
     public WebElement contactTypeSpan;
 
     @FindBy(id = "sc_req_item.correlation_display")
     public WebElement correlationDisplay;
+    
     @FindBy(id = "status.sc_req_item.correlation_display")
     public WebElement correlationDisplaySpan;
 
     @FindBy(id = "sc_req_item.correlation_id")
     public WebElement correlationId;
+    
     @FindBy(id = "status.sc_req_item.correlation_id")
     public WebElement correlationIdSpan;
 
     @FindBy(id = "sys_display.sc_req_item.delivery_plan")
     public WebElement deliveryPlan;
+    
     @FindBy(id = "status.sc_req_item.delivery_plan")
     public WebElement deliveryPlanSpan;
 
     @FindBy(id = "sys_display.sc_req_item.delivery_task")
     public WebElement deliveryTask;
+    
     @FindBy(id = "status.sc_req_item.delivery_task")
     public WebElement deliveryTaskSpan;
 
     @FindBy(id = "sc_req_item.description")
     public WebElement description;
+    
     @FindBy(id = "status.sc_req_item.description")
     public WebElement descriptionSpan;
 
     @FindBy(id = "sc_req_item.due_date")
     public WebElement dueDate;
+    
     @FindBy(id = "status.sc_req_item.due_date")
     public WebElement dueDateSpan;
 
     @FindBy(id = "sc_req_item.escalation")
     public WebElement escalation;
+    
     @FindBy(id = "status.sc_req_item.escalation")
     public WebElement escalationSpan;
 
     @FindBy(id = "sc_req_item.expected_start")
     public WebElement expectedStart;
+    
     @FindBy(id = "status.sc_req_item.expected_start")
     public WebElement expectedStartSpan;
 
     @FindBy(id = "sc_req_item.follow_up")
     public WebElement followUp;
+    
     @FindBy(id = "status.sc_req_item.follow_up")
     public WebElement followUpSpan;
 
     @FindBy(id = "sc_req_item.group_list")
     public WebElement groupList;
+    
     @FindBy(id = "status.sc_req_item.group_list")
     public WebElement groupListSpan;
 
     @FindBy(id = "sc_req_item.impact")
     public WebElement impact;
+    
     @FindBy(id = "status.sc_req_item.impact")
     public WebElement impactSpan;
 
@@ -399,8 +440,14 @@ public class ScReqItem extends BaseTest {
     @FindBy(id = "status.sc_req_item.work_start")
     public WebElement workStartSpan;
     
-    @FindBy(id = "order_now")
+    //@FindBy(id = "order_now")
+    //public WebElement orderNow;
+    
+    @FindBy(id = "oi_order_now_button")
     public WebElement orderNow;
+    
+    @FindBy(id = "IO:f3776ac9c0a8010a003825c70f35fab7")
+    public WebElement adddescription;
     
     @FindBy(className = "linked")
     public WebElement linkToRITM;

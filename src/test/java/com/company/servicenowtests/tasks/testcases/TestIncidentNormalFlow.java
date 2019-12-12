@@ -1,14 +1,14 @@
 package com.company.servicenowtests.tasks.testcases;
 
+import static org.testng.AssertJUnit.assertTrue;
+import org.testng.annotations.Test;
 import com.company.servicenowtests.BaseServiceNowTestSauce;
 import com.company.servicenowtests.tasks.Incident;
 import com.saucelabs.common.SauceOnDemandSessionIdProvider;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-import static org.junit.Assert.assertTrue;
-import org.junit.Before;
+
 import org.junit.Ignore;
-import org.junit.Test;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -19,6 +19,7 @@ import org.openqa.selenium.support.PageFactory;
  * 
  * @author Juustin Bauguess
  */
+@Ignore
 public class TestIncidentNormalFlow extends BaseServiceNowTestSauce implements SauceOnDemandSessionIdProvider  {
    
     public TestIncidentNormalFlow(String os, String version, String browser) {

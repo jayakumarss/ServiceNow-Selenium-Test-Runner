@@ -2,6 +2,8 @@ package com.company.servicenowtests;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import static org.junit.Assert.assertTrue;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,8 +13,10 @@ import org.openqa.selenium.support.FindBy;
 
 /**
  *
- * @author Justin Bauguess
+ * Basic Navigation Functionalities: Access to All Apps, 
+ * Incidents Open, My Requests, Service Catalog, and Knowledge Base
  */
+
 public class ServiceNowLeftNav extends BaseTest {
 
     public ServiceNowLeftNav(WebDriver driver) {
@@ -39,12 +43,61 @@ public class ServiceNowLeftNav extends BaseTest {
         }
     }
     
+       
     /**
      * Switches to the left nav frame of ServiceNow
      */
     public void switchToNavFrame() {
-        driver.switchTo().defaultContent();
-        driver.switchTo().frame("gsft_nav");
+       driver.switchTo().defaultContent();
+       WebElement allapps = driver.findElement(By.id("allApps_tab"));
+       allapps.click();
+       try {
+			TimeUnit.SECONDS.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       ScreenshotUtils.captureSnapshotForAllure(driver);
+       
+       IncidentOpen.click();
+       
+       try {
+			TimeUnit.SECONDS.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       ScreenshotUtils.captureSnapshotForAllure(driver);
+       
+       MyRequests.click();
+       
+       try {
+			TimeUnit.SECONDS.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       ScreenshotUtils.captureSnapshotForAllure(driver);
+       
+       ServiceCatalog.click();
+       
+       try {
+			TimeUnit.SECONDS.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       ScreenshotUtils.captureSnapshotForAllure(driver);
+       
+       Knowledge.click();
+       
+       try {
+			TimeUnit.SECONDS.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       ScreenshotUtils.captureSnapshotForAllure(driver);
     }
     
     /**
@@ -60,7 +113,7 @@ public class ServiceNowLeftNav extends BaseTest {
      * @param element A link element to click on
      */
     public void navigateToElement(WebElement element) {
-        switchToNavFrame();
+       switchToNavFrame();
         expandAll();
         element.click();
         switchToMainFrame();
@@ -95,29 +148,20 @@ public class ServiceNowLeftNav extends BaseTest {
     public List<LeftNavFilter> getIncidentFilters() {
         List<LeftNavFilter> incidentFilter = new ArrayList();
         incidentFilter.add(new LeftNavFilter(IncidentOpen, "incident", "active=true"));
-        incidentFilter.add(new LeftNavFilter(IncidentClosed, "incident", "active=false"));
+        //incidentFilter.add(new LeftNavFilter(IncidentClosed, "incident", "active=false"));
         return incidentFilter;
     }
-
-    @FindBy(id = "app_bb42119aa9fea578002daa46510962d5")
+   
+    @FindBy(id = "087800c1c0a80164004e32c8a64a97c9")
     public WebElement IncidentOpen;
+        
+    @FindBy(id = "0878652cc0a801640001ff83e2bfbfe7")
+    public WebElement Knowledge;
     
-    @FindBy(id = "app_bb42119aa9fea578002daa46510962d7")
-    public WebElement IncidentClosed;
-
-    @FindBy(id = "f2df1571c0a801660174a14483e412c2")
-    public WebElement SocialITChat;
-
-    @FindBy(id = "f220395b4408110011489d934f72d3ae")
-    public WebElement SocialITSupportDeskHelp;
-
-    @FindBy(id = "bb465f23a9fea57800e006d6e26d7544")
-    public WebElement SocialITLiveFeed;
-
-    @FindBy(id = "960d909e0a6d475100549e0d420a1fe3")
-    public WebElement SocialITChatAdministration;
-
-    @FindBy(id = "8679136a0a0007dc002b1fef701266a9")
-    public WebElement SocialITFeedAdministration;  
+    @FindBy (id = "e660172ac611227b00fa88fb47ae3fad")
+    public WebElement ServiceCatalog;
+    
+    @FindBy(id = "e661dff4c611227b01af0af70d4b67f1")
+    public WebElement MyRequests;
 
 }

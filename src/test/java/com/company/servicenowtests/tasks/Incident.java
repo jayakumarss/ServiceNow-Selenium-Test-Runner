@@ -71,6 +71,10 @@ public class Incident extends BaseTest {
 
     @FindBy(id = "incident.close_notes")
     public WebElement closeNotes;
+    
+   // @FindBy(id = "element.incident.close_notes")
+  //  public WebElement closeNotes;
+    
     @FindBy(id = "status.incident.close_notes")
     public WebElement closeNotesSpan;
 
@@ -96,6 +100,7 @@ public class Incident extends BaseTest {
 
     @FindBy(id = "incident.contact_type")
     public WebElement contactType;
+    
     @FindBy(id = "status.incident.contact_type")
     public WebElement contactTypeSpan;
 
@@ -364,6 +369,10 @@ public class Incident extends BaseTest {
 
     @FindBy(id = "incident.close_code")
     public WebElement closeCode;
+    
+   // @FindBy(id = "element.incident.close_code")
+  //  public WebElement closeCode;
+    
     @FindBy(id = "status.incident.close_code")
     public WebElement closeCodeSpan;
 
@@ -394,6 +403,7 @@ public class Incident extends BaseTest {
 
     @FindBy(id = "incident.resolved_at")
     public WebElement resolvedAt;
+   
     @FindBy(id = "status.incident.resolved_at")
     public WebElement resolvedAtSpan;
 
@@ -446,6 +456,9 @@ public class Incident extends BaseTest {
     public WebElement vendorTicket;
     @FindBy(id = "status.incident.vendor_ticket")
     public WebElement vendorTicketSpan;
+    
+    @FindBy (id = "resolve_incident")
+    public WebElement resolvebtn;
 
     public Incident(WebDriver driver) {
         super(driver);

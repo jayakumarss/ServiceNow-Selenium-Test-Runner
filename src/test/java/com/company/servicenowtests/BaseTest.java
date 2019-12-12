@@ -1,25 +1,29 @@
 package com.company.servicenowtests;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import io.qameta.allure.Attachment;
+
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import org.junit.After;
-import org.junit.Before;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Duration;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Sleeper;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -29,7 +33,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class BaseTest {
 
-    protected WebDriver driver;
+    public WebDriver driver;
     
     @FindBy(id = "sys_uniqueValue")
     public WebElement sysId;
@@ -69,18 +73,23 @@ public class BaseTest {
 
     private boolean acceptNextAlert = true;
 
-    private final String BASE_URL = "https://" + System.getProperty("environment") + ".service-now.com/";
+   private final String BASE_URL = "https://" + System.getProperty("environment") + ".service-now.com/";
     private final String ITIL_NAME = "Itil";
     private final String ADMIN_NAME = "Admin";
     private final String ESS_NAME = "Ess";
-    private final String CONTRACTOR_NAME = "9.Selenium.Contractor";
+    private final String CONTRACTOR_NAME = "Selenium.Contractor";
     public final int ITIL = 0;
     public final int ADMIN = 1;
     public final int ESS = 2;
     public final int CONTRACTOR = 3;
-
+    public String browser;
+    public String os;
+    public String version;
+    
+   public BaseTest() {}
+  
     public BaseTest(WebDriver driver) {
-        this.driver = driver;
+    	this.driver = driver;
     }
 
     /**
@@ -89,7 +98,7 @@ public class BaseTest {
      */
     public void makeThePageWait(int duration) {
         try {
-            Sleeper.SYSTEM_SLEEPER.sleep(new Duration(duration, TimeUnit.SECONDS));
+        	wait(duration);
         } catch (InterruptedException ie) {
             System.out.println(ie);
         }
@@ -100,7 +109,9 @@ public class BaseTest {
      * @param username The user to impersonate
      */
     public void impersonateAUser(String username){
-        this.login(1);
+    	System.out.println("logging in" +username);
+    	this.login(1);
+        System.out.println("logging in" +username);
         driver.get(this.getBASE_URL() + "navpage.do");
         if (driver instanceof JavascriptExecutor) {
             ((JavascriptExecutor) driver).executeScript("impUser.impersonateUser();");
@@ -118,11 +129,14 @@ public class BaseTest {
         return BASE_URL;
     }
 
-    @Before
-    public void setUp() {
+    @BeforeMethod
+	public void setUp() {
+    	System.out.println("Inside setup logging in" +username);
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
+    
+   
 
     /**
      * Returns a Select Element, based on a WebElement
@@ -141,12 +155,33 @@ public class BaseTest {
      * @param value The value to set the Select Box to
      */
     public void useSelectElement(WebElement pageElement, String value) {
-        List<WebElement> options = getSelectElement(pageElement).getOptions();
-        for (WebElement item : options) {
+    	try {
+    	List<WebElement> options = getSelectElement(pageElement).getOptions();
+          for (WebElement item : options) {
             if (item.getText().equalsIgnoreCase(value)) {
-                item.click();
-            }
+            	item.sendKeys(value);
+            	//item.click();
+            	try {
+         			TimeUnit.SECONDS.sleep(10);
+         		} catch (InterruptedException e) {}
+               }
         }
+          }catch (Exception e) {}
+    }
+    
+    public void useElementSelection(WebElement pageElement, String value) {
+    	try {
+    	List<WebElement> options = getSelectElement(pageElement).getOptions();
+          for (WebElement item : options) {
+            if (item.getText().equalsIgnoreCase(value)) {
+            	//item.sendKeys(value);
+            	item.click();
+            	try {
+         			TimeUnit.SECONDS.sleep(10);
+         		} catch (InterruptedException e) {}
+               }
+        }
+          }catch (Exception e) {}
     }
 
     /**
@@ -155,9 +190,10 @@ public class BaseTest {
      * @param as An integer value representing a role
      */
     public void login(int as) {
+    	
         driver.get(BASE_URL + "login.do");
         switch (as) {
-            case ITIL:
+           case ITIL:
                 loginAsITIL();
                 break;
             case ADMIN:
@@ -167,13 +203,15 @@ public class BaseTest {
                 loginAsESS();
                 break;
             case CONTRACTOR:
-                loginAsContractor();
+               loginAsContractor();
                 break;
+        
             default:
-                loginAsITIL();
+            	loginAsITIL();
                 break;
         }
         password.sendKeys(System.getProperty("password"));
+        ScreenshotUtils.captureSnapshotForAllure(driver);
         loginButton.click();
     }
 
@@ -181,14 +219,14 @@ public class BaseTest {
      * Logs in as an ITIL user (Selenium Itil)
      */
     private void loginAsITIL() {
-        username.sendKeys(ITIL_NAME);
+    	username.sendKeys(ITIL_NAME);
     }
 
     /**
      * Logs in as a system admin (Selenium Admin)
      */
     private void loginAsAdmin() {
-        username.sendKeys(ADMIN_NAME);
+    	username.sendKeys(ADMIN_NAME);
     }
 
     /**
@@ -205,8 +243,8 @@ public class BaseTest {
         username.sendKeys(CONTRACTOR_NAME);
     }
 
-    @After
-    public void tearDown() {
+    @AfterMethod
+	public void tearDown() {
         driver.quit();
     }
 

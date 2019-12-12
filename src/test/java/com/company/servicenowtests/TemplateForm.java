@@ -1,6 +1,8 @@
 package com.company.servicenowtests;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,9 +24,15 @@ public class TemplateForm extends BaseTest {
     
     @FindBy(id = "status.sys_template.name")
     public WebElement nameSpan;
-    
-    @FindBy(id = "sys_template.table")
-    public WebElement table;
+ 
+ 	@FindBy(id = "element.sys_template.table")
+     public WebElement table;
+ 	
+ 	//@FindBy(id = "sys_template.table")
+    //public WebElement table;
+
+ 	@FindBy(xpath=("//*[@class=\"select2-container filerTableSelect select2 form-control filter_type\"]"))
+ 	public WebElement template;
     
     @FindBy(id = "status.sys_template.table")
     public WebElement tableSpan;
@@ -32,39 +40,27 @@ public class TemplateForm extends BaseTest {
     @FindBy(id = "ni.sys_template.active")
     public WebElement active;
     
-    @FindBy(id = "status.ni.sys_template.active")
+    @FindBy(id = "status.sys_template.active")
     public WebElement activeSpan;
     
     @FindBy(id = "sys_display.sys_template.user")
     public WebElement user;
     
-    @FindBy(id = "status.sys_display.sys_template.user")
+    @FindBy(id = "status.sys_template.user")
     public WebElement userSpan;
     
     @FindBy(id = "sys_display.sys_template.group")
     public WebElement group;
-    
-    @FindBy(id = "status.sys_display.sys_template.group")
+
+    @FindBy(id = "status.sys_template.group")
     public WebElement groupSpan;
     
     @FindBy(id = "ni.sys_template.global")
     public WebElement global;
-    
-    @FindBy(id = "status.ni.sys_template.global")
+
+    @FindBy(id = "status.sys_template.global")
     public WebElement globalSpan;
-    
-    @FindBy(id = "sys_display.sys_template.next_child")
-    public WebElement nextChild;
-    
-    @FindBy(id = "status.sys_display.sys_template.next_child")
-    public WebElement nextChildSpan;
-    
-    @FindBy(id = "sys_display.sys_template.next")
-    public WebElement nextRelated;
-    
-    @FindBy(id = "status.sys_display.sys_template.next")
-    public WebElement nextRelatedSpan;
-    
+
     @FindBy(id = "sys_template.short_description")
     public WebElement shortDescription;
     
@@ -72,7 +68,16 @@ public class TemplateForm extends BaseTest {
     public WebElement shortDescriptionSpan;
     
     @FindBy(id = "sys_template.templatefilters_table")
-    public WebElement templateFiltersTable;    
+    public WebElement templateFiltersTable;   
+    
+    @FindBy(id = "s2id_autogen1_search")
+    public WebElement tablesearch;
+    
+    @FindBy(id = "s2id_autogen5983_search")
+    public WebElement templatesearch;
+
+    @FindBy(xpath=("//*[@class=\"select2-result-label\"]"))
+	public WebElement result;
     
     public String sys_id;
     
@@ -94,12 +99,31 @@ public class TemplateForm extends BaseTest {
     public void createATemplateRecord(String tableName) {
         driver.get(getBASE_URL() + "sys_template.do");
         shortDescription.sendKeys("Testing templates for " + tableName);
-        Select tableBox = new Select(table);
-        tableBox.selectByValue(tableName);
+        table.click();
+        tablesearch.sendKeys(tableName);
+      
+        if (result.equals(tablesearch));
+        {
+        result.click();	
+        }
+        
+        try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         insertAndStayButton.click();
+        try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        ScreenshotUtils.captureSnapshotForAllure(driver);
         sys_id = sysId.getAttribute("value");
     }
-    
+  
     /**
      * Sets a field on the template form
      * @param index which field is being set (0-based)
@@ -116,9 +140,16 @@ public class TemplateForm extends BaseTest {
         List<WebElement> inputs = input.findElements(By.className("form-control"));
         if (inputs.size() == 2) {
             inputs.get(1).sendKeys(value); //This is to handle reference fields
-        } else {
+            } else {
             inputs.get(0).sendKeys(value);
-        }
+            }
+        try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
     }
     
     /**
@@ -140,9 +171,17 @@ public class TemplateForm extends BaseTest {
      * @param index The index of the field line to clear
      */
     public void clearExistingValueByIndex(int index) {
-        List<WebElement> deleteButtons = driver.findElements(By.className("deleteButton"));
-        deleteButtons.get(index).click();
-    }
+        List<WebElement> deleteButtons = driver.findElements(By.className(".filerTableAction.btn.btn-default.deleteButton"));
+        
+        try {
+        	deleteButtons.get(index).click();
+        	
+        } catch (Exception e) {
+            //The last one isn't visible
+        	e.printStackTrace();
+        }
+        updateButton.click();
+       }
     
     /**
      * Updates a task template with two dummy values
@@ -150,8 +189,18 @@ public class TemplateForm extends BaseTest {
     public void updateATaskTemplate() {
         driver.get(getBASE_URL() + "sys_template.do?sys_id=" + sys_id);
         clearExistingValues();
-        setAField(0, "Short description", "A basic change test");
-        setAField(1, "Description", "A basic change test description");
+        //setAField(0, "Short description", "A basic change test");
+        //setAField(1, "Description", "A basic change test description");
+        setAField(0, "SLA due", "2019-12-06 00:00:00");
+        setAField(1, "Delivery plan", "DEFAULT");
         updateButton.click();
+        try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        ScreenshotUtils.captureSnapshotForAllure(driver);
+        
     }
 }
