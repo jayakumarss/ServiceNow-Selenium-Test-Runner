@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ServiceNowSeleniumTests" preserve-order="true" parallel="false">
+  <test thread-count="5" name="ServiceNow Selenium Automated Testing">
+    <classes>
+      <class name="com.company.servicenowtests.tests.TestLeftNav"/>
+      <!--class name="com.company.servicenowtests.tests.TestListView"/-->
+      <class name="com.company.servicenowtests.tasks.testcases.TestIncidentWithoutSauce"/>
+      <class name="com.company.servicenowtests.tests.TestTemplateForm"/>
+      <class name="com.company.servicenowtests.servicecatalog.testcases.TestSalesLaptop"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

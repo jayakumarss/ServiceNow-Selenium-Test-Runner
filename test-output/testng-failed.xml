@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [ServiceNowSeleniumTests]">
+  <test name="ServiceNow Selenium Automated Testing(failed)">
+    <classes>
+      <class name="com.company.servicenowtests.tests.TestTemplateForm">
+        <methods>
+          <include name="updateATemplate"/>
+          <include name="setUp"/>
+          <include name="createAChangeTemplate"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.company.servicenowtests.tests.TestTemplateForm -->
+    </classes>
+  </test> <!-- ServiceNow Selenium Automated Testing(failed) -->
+</suite> <!-- Failed suite [ServiceNowSeleniumTests] -->

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="ServiceNowSeleniumTests" duration-ms="247292" started-at="2019-12-12T15:08:12Z" finished-at="2019-12-12T15:12:19Z">
+    <groups>
+    </groups>
+    <test name="ServiceNow Selenium Automated Testing" duration-ms="247292" started-at="2019-12-12T15:08:12Z" finished-at="2019-12-12T15:12:19Z">
+      <class name="com.company.servicenowtests.tests.TestLeftNav">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.company.servicenowtests.tests.TestLeftNav@f5c79a6]" name="setUp" is-config="true" duration-ms="14319" started-at="2019-12-12T10:08:12Z" finished-at="2019-12-12T10:08:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testswitchToNavFrame()[pri:0, instance:com.company.servicenowtests.tests.TestLeftNav@f5c79a6]" name="testswitchToNavFrame" duration-ms="52707" started-at="2019-12-12T10:08:27Z" finished-at="2019-12-12T10:09:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testswitchToNavFrame -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.company.servicenowtests.tests.TestLeftNav@f5c79a6]" name="tearDown" is-config="true" duration-ms="961" started-at="2019-12-12T10:09:19Z" finished-at="2019-12-12T10:09:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.company.servicenowtests.tests.TestLeftNav -->
+      <class name="com.company.servicenowtests.servicecatalog.testcases.TestSalesLaptop">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.company.servicenowtests.servicecatalog.testcases.TestSalesLaptop@51a06cbe]" name="setUp" is-config="true" duration-ms="7169" started-at="2019-12-12T10:11:37Z" finished-at="2019-12-12T10:11:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testCreationOfOrder()[pri:0, instance:com.company.servicenowtests.servicecatalog.testcases.TestSalesLaptop@51a06cbe]" name="testCreationOfOrder" duration-ms="34161" started-at="2019-12-12T10:11:44Z" finished-at="2019-12-12T10:12:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreationOfOrder -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.company.servicenowtests.servicecatalog.testcases.TestSalesLaptop@51a06cbe]" name="tearDown" is-config="true" duration-ms="824" started-at="2019-12-12T10:12:18Z" finished-at="2019-12-12T10:12:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.company.servicenowtests.servicecatalog.testcases.TestSalesLaptop -->
+      <class name="com.company.servicenowtests.tests.TestTemplateForm">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.company.servicenowtests.tests.TestTemplateForm@5305c37d]" name="setUp" is-config="true" duration-ms="6948" started-at="2019-12-12T10:10:29Z" finished-at="2019-12-12T10:10:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="createAChangeTemplate()[pri:0, instance:com.company.servicenowtests.tests.TestTemplateForm@5305c37d]" name="createAChangeTemplate" duration-ms="60083" started-at="2019-12-12T10:10:36Z" finished-at="2019-12-12T10:11:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAChangeTemplate -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.company.servicenowtests.tests.TestTemplateForm@5305c37d]" name="tearDown" is-config="true" duration-ms="811" started-at="2019-12-12T10:11:36Z" finished-at="2019-12-12T10:11:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.company.servicenowtests.tests.TestTemplateForm -->
+      <class name="com.company.servicenowtests.tasks.testcases.TestIncidentWithoutSauce">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.company.servicenowtests.tasks.testcases.TestIncidentWithoutSauce@669253b7]" name="setUp" is-config="true" duration-ms="9123" started-at="2019-12-12T10:09:20Z" finished-at="2019-12-12T10:09:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testIncident()[pri:0, instance:com.company.servicenowtests.tasks.testcases.TestIncidentWithoutSauce@669253b7]" name="testIncident" duration-ms="58562" started-at="2019-12-12T10:09:29Z" finished-at="2019-12-12T10:10:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testIncident -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.company.servicenowtests.tasks.testcases.TestIncidentWithoutSauce@669253b7]" name="tearDown" is-config="true" duration-ms="929" started-at="2019-12-12T10:10:28Z" finished-at="2019-12-12T10:10:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.company.servicenowtests.tasks.testcases.TestIncidentWithoutSauce -->
+    </test> <!-- ServiceNow Selenium Automated Testing -->
+  </suite> <!-- ServiceNowSeleniumTests -->
+</testng-results>
